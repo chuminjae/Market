@@ -19,41 +19,33 @@ function MainPage() {
   }, []);
   return (
     <div>
-      <div id="header">
-        <div id="header-area">
-          <img src="images/icons/logo.png" />
-        </div>
+      <div id="banner">
+        <img src="images/banners/banner1.png" />
       </div>
-      <div id="body">
-        <div id="banner">
-          <img src="images/banners/banner1.png" />
-        </div>
-        <h1>Products</h1>
-        <div id="product_list">
-          {products.map(function (product, index) {
-            return (
-              <div className="product-card">
-                <Link className="productLink" to={`/products/${index}`}>
-                  <div>
-                    <img className="product-img" src={product.image} />
-                  </div>
-                  <div>
-                    <div className="product-content">
-                      <span className="product-name">{product.name}</span>
-                      <span className="product-price">{product.price}원</span>
-                      <div className="product-seller">
-                        <img className="icon" src="images/icons/avatar.png" />
-                        <span>{product.seller}</span>
-                      </div>
+      <h1>Products</h1>
+      <div id="product_list">
+        {products.map(function (product, index) {
+          return (
+            <div className="product-card">
+              <Link className="productLink" to={`/products/${product.id}`}>
+                <div>
+                  <img className="product-img" src={product.image} />
+                </div>
+                <div>
+                  <div className="product-content">
+                    <span className="product-name">{product.name}</span>
+                    <span className="product-price">{product.price}원</span>
+                    <div className="product-seller">
+                      <img className="icon" src="images/icons/avatar.png" />
+                      <span>{product.seller}</span>
                     </div>
-                  </div>{" "}
-                </Link>
-              </div>
-            );
-          })}
-        </div>
+                  </div>
+                </div>{" "}
+              </Link>
+            </div>
+          );
+        })}
       </div>
-      <div id="footer"></div>
     </div>
   );
 }
